@@ -61,5 +61,70 @@
       "themeColor": "#2563eb"
   });
 </script>
+    <style>
+  .popup {
+    position: fixed;
+    bottom: 40px;  /* Adjust the distance from the bottom as needed /
+    right: 60px;  / Adjust the distance from the right as needed /
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: none;
+    z-index: 9999;
+    cursor: pointer;
+    display: flex;
+    justify-content: right;
+    overflow: hidden; / Ensure the image fits within the pop-up /
+  }
+  .popup img {
+    width: 20%; / Adjust the image size to fit the pop-up */
+    height: 20%;
+    border-radius: 10px;
+  }
+</style> 
+<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script>
+window.addEventListener("DOMContentLoaded", function() {
+    var popupDisplayed = false;
+
+    function showPopup() {
+      if (!popupDisplayed) {
+        // Create the pop-up element
+        var popup = document.createElement("div");
+        popup.className = "popup";
+
+        // Create the pop-up image
+        var popupImage = document.createElement("img");
+        popupImage.src = "img/popup.png";  /* Replace 'path/to/designed-image.png' with the actual path to your designed image */
+        popup.appendChild(popupImage);
+
+        // Append the pop-up to the body
+        document.body.appendChild(popup);
+        popupDisplayed = true;
+      }
+    }
+
+    function showChatWidget() {
+      var chatWidget = document.getElementById("botpress-webchat");
+      chatWidget.style.display = "block";
+      document.body.removeChild(document.getElementById("popup"));
+    }
+
+    // Show the pop-up when scrolling down a few lines
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > 100) { // Adjust the scroll position as needed
+        showPopup();
+      }
+    });
+
+    // Show the chat widget when the pop-up is clicked
+    document.addEventListener("click", function(event) {
+      var popup = document.getElementById("popup");
+      if (event.target === popup) {
+        showChatWidget();
+      }
+    });
+});
+</script>
+<script src="https://mediafiles.botpress.cloud/YOURBOT /webchat/config.js" defer></script>
     
 </html>
