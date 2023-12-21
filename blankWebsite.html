@@ -61,11 +61,12 @@
       "themeColor": "#2563eb"
   });
 </script>
-    <style>
+    
+<style>
   .popup {
     position: fixed;
-    bottom: 40px;  
-    right: 60px;  
+    bottom: 40px;  / Adjust the distance from the bottom as needed /
+    right: 60px;  / Adjust the distance from the right as needed /
     padding: 20px;
     border-radius: 10px;
     box-shadow: none;
@@ -73,14 +74,15 @@
     cursor: pointer;
     display: flex;
     justify-content: right;
-    overflow: hidden; 
+    overflow: hidden; / Ensure the image fits within the pop-up /
   }
   .popup img {
-    width: 20%; 
+    width: 20%; / Adjust the image size to fit the pop-up /
     height: 20%;
     border-radius: 10px;
   }
-</style> 
+</style> (edited)
+[6:33 PM]
 <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script>
 window.addEventListener("DOMContentLoaded", function() {
@@ -94,7 +96,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
         // Create the pop-up image
         var popupImage = document.createElement("img");
-        popupImage.src = "img/popup.png";  /* Replace 'path/to/designed-image.png' with the actual path to your designed image */
+        popupImage.src = "https://cdn3.iconfinder.com/data/icons/speech-bubble-19/512/N_T_1026Artboard_1_copy_12-512.png";  /* Replace 'path/to/designed-image.png' with the actual path to your designed image */
         popup.appendChild(popupImage);
 
         // Append the pop-up to the body
@@ -126,5 +128,4 @@ window.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <script src="https://mediafiles.botpress.cloud/YOURBOT /webchat/config.js" defer></script>
-    
 </html>
